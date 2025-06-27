@@ -232,8 +232,8 @@ namespace McpUnity.Unity
             AddPackageTool addPackageTool = new AddPackageTool();
             _tools.Add(addPackageTool.Name, addPackageTool);
             
-            // Register RunTestsTool
-            RunTestsTool runTestsTool = new RunTestsTool(_testRunnerService);
+            // Register RunTestsTool (test functionality disabled)
+            RunTestsTool runTestsTool = new RunTestsTool();
             _tools.Add(runTestsTool.Name, runTestsTool);
             
             // Register SendConsoleLogTool
@@ -247,6 +247,14 @@ namespace McpUnity.Unity
             // Register AddAssetToSceneTool
             AddAssetToSceneTool addAssetToSceneTool = new AddAssetToSceneTool();
             _tools.Add(addAssetToSceneTool.Name, addAssetToSceneTool);
+            
+            // Register DeleteAssetTool
+            DeleteAssetTool deleteAssetTool = new DeleteAssetTool();
+            _tools.Add(deleteAssetTool.Name, deleteAssetTool);
+            
+            // Register RequestScriptCompilationTool
+            RequestScriptCompilationTool requestScriptCompilationTool = new RequestScriptCompilationTool(_consoleLogsService);
+            _tools.Add(requestScriptCompilationTool.Name, requestScriptCompilationTool);
         }
         
         /// <summary>
@@ -274,13 +282,17 @@ namespace McpUnity.Unity
             GetAssetsResource getAssetsResource = new GetAssetsResource();
             _resources.Add(getAssetsResource.Name, getAssetsResource);
             
-            // Register GetTestsResource
-            GetTestsResource getTestsResource = new GetTestsResource(_testRunnerService);
+            // Register GetTestsResource (test functionality disabled)
+            GetTestsResource getTestsResource = new GetTestsResource();
             _resources.Add(getTestsResource.Name, getTestsResource);
             
             // Register GetGameObjectResource
             GetGameObjectResource getGameObjectResource = new GetGameObjectResource();
             _resources.Add(getGameObjectResource.Name, getGameObjectResource);
+            
+            // Register GetScenesHierarchySimpleResource
+            GetScenesHierarchySimpleResource getScenesHierarchySimpleResource = new GetScenesHierarchySimpleResource();
+            _resources.Add(getScenesHierarchySimpleResource.Name, getScenesHierarchySimpleResource);
         }
         
         /// <summary>

@@ -1,14 +1,15 @@
-# MCP Unity Editor (Game Engine)
+# MCP Unity Editor (Game Engine) - Fork by Coldaine
+
+> **Fork Notice**: This is a forked version of the original MCP Unity package by CoderGamester, maintained by Coldaine. This fork includes additional features like a simplified scene hierarchy resource.
+> - Original Repository: [CoderGamester/mcp-unity](https://github.com/CoderGamester/mcp-unity)
+> - Fork Repository: [Coldaine/mcp-unity](https://github.com/Coldaine/mcp-unity)
 
 [![](https://badge.mcpx.dev?status=on 'MCP Enabled')](https://modelcontextprotocol.io/introduction)
 [![](https://img.shields.io/badge/Unity-000000?style=flat&logo=unity&logoColor=white 'Unity')](https://unity.com/releases/editor/archive)
 [![](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white 'Node.js')](https://nodejs.org/en/download/)
-[![](https://img.shields.io/github/stars/CoderGamester/mcp-unity 'Stars')](https://github.com/CoderGamester/mcp-unity/stargazers)
-[![](https://img.shields.io/github/last-commit/CoderGamester/mcp-unity 'Last Commit')](https://github.com/CoderGamester/mcp-unity/commits/main)
+[![](https://img.shields.io/github/forks/CoderGamester/mcp-unity/fork 'Fork')](https://github.com/Coldaine/mcp-unity)
+[![](https://img.shields.io/github/last-commit/Coldaine/mcp-unity 'Last Commit')](https://github.com/Coldaine/mcp-unity/commits/main)
 [![](https://img.shields.io/badge/License-MIT-red.svg 'MIT License')](https://opensource.org/licenses/MIT)
-
-| [English](README.md) | [🇨🇳简体中文](README_zh-CN.md) | [🇯🇵日本語](README-ja.md) |
-|----------------------|---------------------------------|----------------------|
 
 ```                                                                        
                               ,/(/.   *(/,                                  
@@ -41,6 +42,17 @@
      ╚═╝     ╚═╝ ╚═════╝╚═╝              ╚═════╝ ╚═╝  ╚═══╝╚═╝   ╚═╝      ╚═╝   
 ```       
 
+## About This Fork
+
+This is a forked version of the MCP Unity package, originally created by CoderGamester. This fork includes additional features and improvements, such as a simplified scene hierarchy resource that provides a more concise view of your Unity scene.
+
+### Key Differences from Original
+- Added `unity://scenes_hierarchy_simple` resource for a more concise scene hierarchy
+- Updated documentation and attribution
+- Additional customization options
+
+## Original Description
+
 MCP Unity is an implementation of the Model Context Protocol for Unity Editor, allowing AI assistants to interact with your Unity projects. This package provides a bridge between Unity and a Node.js server that implements the MCP protocol, enabling AI agents like Claude, Windsurf, and Cursor to execute operations within the Unity Editor.
 
 <a href="https://glama.ai/mcp/servers/@CoderGamester/mcp-unity">
@@ -48,6 +60,11 @@ MCP Unity is an implementation of the Model Context Protocol for Unity Editor, a
 </a>
 
 ## Features
+
+### New in This Fork
+- **Simplified Scene Hierarchy**: Access a more concise view of your scene hierarchy with `unity://scenes_hierarchy_simple`
+
+### Original Features
 
 ### IDE Integration - Package Cache Access
 
@@ -84,6 +101,9 @@ The following tools are available for manipulating and querying Unity scenes and
 
 - `add_asset_to_scene`: Adds an asset from the AssetDatabase to the Unity scene
   > **Example prompt:** "Add the Player prefab from my project to the current scene"
+
+- `delete_asset`: Deletes an asset from the Unity AssetDatabase (with option to move to trash or permanently delete)
+  > **Example prompt:** "Delete the unused texture file from my project" or "Move the old script to trash"
 
 ### MCP Server Resources
 
@@ -360,7 +380,7 @@ Unity 6.2 is set to introduce new built-in AI tools, including the previous Unit
         -   Adds the functionality to run AI model inference, allowing developers to deploy and run pre-trained neural networks *within your game or application* for features like NPC behavior, image recognition, etc.
 
 -   **Use Cases:**
-    -   **MCP Unity:** "Create a new 3D object, name it 'Player', add a Rigidbody, and set its mass to 10." "Run all Play Mode tests." "Ask to fix the error on the console log." "Execute the custom menu item 'Prepare build for iOS' and fix any errors that may occur."
+    -   **MCP Unity:** "Create a new 3D object, name it 'Player', add a Rigidbody, and set its mass to 10." "Run all the EditMode tests." "Ask to fix the error on the console log." "Execute the custom menu item 'Prepare build for iOS' and fix any errors that may occur."
     -   **Unity 6.2 AI:** "Generate a sci-fi texture for this material." "Update all trees position in the scene to be placed inside of terrain zones tagged with 'forest'." "Create a walking animation for this character." "Generate 2D sprites to complete the character." "Ask details about the error on the console log."
 
 -   **Complementary, Not Mutually Exclusive:**

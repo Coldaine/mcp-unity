@@ -2,13 +2,13 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEditor;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using WebSocketSharp;
 using WebSocketSharp.Server;
 using McpUnity.Tools;
 using McpUnity.Resources;
-using Unity.EditorCoroutines.Editor;
 using System.Collections;
 using System.Collections.Specialized;
 using McpUnity.Utils;
@@ -81,11 +81,29 @@ namespace McpUnity.Unity
                 }
                 else if (_server.TryGetTool(method, out var tool))
                 {
-                    EditorCoroutineUtility.StartCoroutineOwnerless(ExecuteTool(tool, parameters, tcs));
+                    EditorApplication.delayCall += () => {
+                        try {
+                            var enumerator = ExecuteTool(tool, parameters, tcs);
+                            while (enumerator.MoveNext()) {
+                                // Just run the coroutine synchronously
+                            }
+                        } catch (Exception ex) {
+                            tcs.SetException(ex);
+                        }
+                    };
                 }
                 else if (_server.TryGetResource(method, out var resource))
                 {
-                    EditorCoroutineUtility.StartCoroutineOwnerless(FetchResourceCoroutine(resource, parameters, tcs));
+                    EditorApplication.delayCall += () => {
+                        try {
+                            var enumerator = FetchResourceCoroutine(resource, parameters, tcs);
+                            while (enumerator.MoveNext()) {
+                                // Just run the coroutine synchronously
+                            }
+                        } catch (Exception ex) {
+                            tcs.SetException(ex);
+                        }
+                    };
                 }
                 else
                 {

@@ -11,10 +11,13 @@ import { registerSendConsoleLogTool } from './tools/sendConsoleLogTool.js';
 import { registerGetConsoleLogsTool } from './tools/getConsoleLogsTool.js';
 import { registerUpdateComponentTool } from './tools/updateComponentTool.js';
 import { registerAddAssetToSceneTool } from './tools/addAssetToSceneTool.js';
+import { registerDeleteAssetTool } from './tools/deleteAssetTool.js';
 import { registerUpdateGameObjectTool } from './tools/updateGameObjectTool.js';
+import { registerRequestScriptCompilationTool } from './tools/requestScriptCompilationTool.js';
 import { registerGetMenuItemsResource } from './resources/getMenuItemResource.js';
 import { registerGetConsoleLogsResource } from './resources/getConsoleLogsResource.js';
 import { registerGetHierarchyResource } from './resources/getScenesHierarchyResource.js';
+import { registerGetHierarchySimpleResource } from './resources/getScenesHierarchySimpleResource.js';
 import { registerGetPackagesResource } from './resources/getPackagesResource.js';
 import { registerGetAssetsResource } from './resources/getAssetsResource.js';
 import { registerGetTestsResource } from './resources/getTestsResource.js';
@@ -54,7 +57,9 @@ registerSendConsoleLogTool(server, mcpUnity, toolLogger);
 registerGetConsoleLogsTool(server, mcpUnity, toolLogger);
 registerUpdateComponentTool(server, mcpUnity, toolLogger);
 registerAddAssetToSceneTool(server, mcpUnity, toolLogger);
+registerDeleteAssetTool(server, mcpUnity, toolLogger);
 registerUpdateGameObjectTool(server, mcpUnity, toolLogger);
+registerRequestScriptCompilationTool(server, mcpUnity, toolLogger);
 
 // Register all resources into the MCP server
 registerGetTestsResource(server, mcpUnity, resourceLogger);
@@ -62,6 +67,7 @@ registerGetGameObjectResource(server, mcpUnity, resourceLogger);
 registerGetMenuItemsResource(server, mcpUnity, resourceLogger);
 registerGetConsoleLogsResource(server, mcpUnity, resourceLogger);
 registerGetHierarchyResource(server, mcpUnity, resourceLogger);
+registerGetHierarchySimpleResource(server, mcpUnity, resourceLogger);
 registerGetPackagesResource(server, mcpUnity, resourceLogger);
 registerGetAssetsResource(server, mcpUnity, resourceLogger);
 

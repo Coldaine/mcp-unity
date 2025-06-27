@@ -411,6 +411,15 @@ namespace McpUnity.Unity
             EditorGUILayout.LabelField("Example prompt:", EditorStyles.miniLabel);
             WrappedLabel("Add the Player prefab from my project to the current scene", new GUIStyle(EditorStyles.miniLabel) { fontStyle = FontStyle.Italic });
             EditorGUILayout.EndVertical();
+            EditorGUILayout.Space();
+            
+            // request_script_compilation
+            WrappedLabel("request_script_compilation", EditorStyles.boldLabel);
+            WrappedLabel("Requests Unity to recompile all scripts and reports when compilation is complete or if errors occur");
+            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+            EditorGUILayout.LabelField("Example prompt:", EditorStyles.miniLabel);
+            WrappedLabel("Recompile all scripts in my project and let me know when it's done", new GUIStyle(EditorStyles.miniLabel) { fontStyle = FontStyle.Italic });
+            EditorGUILayout.EndVertical();
             
             EditorGUILayout.EndVertical();
             
